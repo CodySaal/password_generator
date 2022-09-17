@@ -9,11 +9,7 @@ var numbers = "0123456789"
 
 var specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
-
-
-
-
-
+var passwordBlueprint = ""
 
 // Write password to the #password input
 function writePassword() {
@@ -24,24 +20,52 @@ function writePassword() {
 
 }
 // An Idea Function
-// function generatePassword() {
-//   var characterCount = prompt("How many characters would you like your new password to be?", "Must be between 8 and 128 characters")
+function generatePassword() {
+  var characterCount = prompt("How many characters would you like your new password to be?", "Must be between 8 and 128 characters")
 
-//   if (characterCount < 8 || characterCount > 128) {
-//     alert("Please select a valid password length");
-//   } else {
-//     characterSelection();
-//   }
+  if (characterCount < 8 || characterCount > 128) {
+    alert("Please select a valid password length");
+  } else {
+    characterSelection();
+  }
 
-//   if (confirm() === true) {
+  
 
-//   }
+}
 
-// }
+function characterSelection() {
+  var includeLowercase = confirm("Would you like to include lowercase letters in your password?")
 
-// function characterSelection() {
+  var includeUppercase = confirm("Would you like to include uppercase letters in your password?")
 
-// }
+  var includeNumbers = confirm ("Would you like to include numbers in your password?")
+
+  var includeSpecialCharacters = confirm ("Would you like to include special characters in your password?");
+  if (includeLowercase === true || includeUppercase === true || includeNumbers === true || includeSpecialCharacters === true) {
+    if (includeLowercase === true) {
+      passwordBlueprint += lowercaseLetters[Math.floor(Math.random()*lowercaseLetters.length)]
+      console.log(passwordBlueprint);
+    }
+  
+    if (includeUppercase === true) {
+      passwordBlueprint += uppercaseLetters[Math.floor(Math.random()*uppercaseLetters.length)]
+      console.log(passwordBlueprint);
+    }
+   
+    if (includeNumbers === true) {
+      passwordBlueprint += numbers[Math.floor(Math.random()*numbers.length)]
+      console.log(passwordBlueprint);
+    }
+  
+    if (includeSpecialCharacters === true) {
+      passwordBlueprint += specialCharacters[Math.floor(Math.random()*specialCharacters.length)]
+      console.log(passwordBlueprint);
+    }
+  } else {
+    alert("A strong password contains at least one of these four options. Please select at least one for your new password.");
+    characterSelection();
+  }
+} 
 
 
 
