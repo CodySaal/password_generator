@@ -21,23 +21,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-// An Idea Function
-function generatePassword() {
-  var characterCount = prompt("How many characters would you like your new password to be?", "Must be between 8 and 128 characters")
-
-  console.log(characterCount)
-
-  if (characterCount < 8 || characterCount > 128) {
-    alert("Please select a valid password length");
-  } else {
-    characterSelection();
-
-  }
-
-  console.log(passwordBlueprint.length, characterPool.length)
-
-  console.log(characterCount - passwordBlueprint.length)
-}
 
 function characterSelection() {
   var includeLowercase = confirm("Would you like to include lowercase letters in your password?")
@@ -90,6 +73,34 @@ function characterSelection() {
     characterSelection();
   }
 } 
+
+// An Idea Function
+function generatePassword() {
+  var characterCount = prompt("How many characters would you like your new password to be?", "Must be between 8 and 128 characters")
+
+  console.log(characterCount)
+
+  if (characterCount < 8 || characterCount > 128) {
+    alert("Please select a valid password length");
+  } else {
+    characterSelection();
+
+  }
+
+  console.log(passwordBlueprint.length, characterPool.length)
+
+  console.log(characterCount - passwordBlueprint.length)
+
+  console.log(passwordBlueprint + characterPool);
+  
+  // close to something here
+  for (i = 0; i < characterCount - passwordBlueprint.length; i++){
+    passwordBlueprint += characterPool[Math.floor(Math.random()*characterPool.length)]
+  }
+  console.log(passwordBlueprint)
+}
+
+
 
 
 
