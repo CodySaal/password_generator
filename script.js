@@ -13,6 +13,9 @@ var passwordBlueprint = ""
 
 var characterPool = ""
 
+ // Try this variable
+ var confirmedCharacters = 0
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -23,6 +26,7 @@ function writePassword() {
 }
 
 function characterSelection() {
+ 
   var includeLowercase = confirm("Would you like to include lowercase letters in your password?")
 
   var includeUppercase = confirm("Would you like to include uppercase letters in your password?")
@@ -30,6 +34,11 @@ function characterSelection() {
   var includeNumbers = confirm ("Would you like to include numbers in your password?")
 
   var includeSpecialCharacters = confirm ("Would you like to include special characters in your password?");
+
+  confirmedCharacters = 0;
+  passwordBlueprint = "";
+
+ 
 
   if (includeLowercase === true || includeUppercase === true || includeNumbers === true || includeSpecialCharacters === true) {
     if (includeLowercase === true) {
@@ -39,6 +48,8 @@ function characterSelection() {
       characterPool += lowercaseLetters;
 
       console.log(characterPool)
+
+      confirmedCharacters++
     }
   
     if (includeUppercase === true) {
@@ -48,6 +59,8 @@ function characterSelection() {
       characterPool += uppercaseLetters;
 
       console.log(characterPool)
+
+      confirmedCharacters++
     }
    
     if (includeNumbers === true) {
@@ -57,6 +70,8 @@ function characterSelection() {
       characterPool += numbers;
 
       console.log(characterPool)
+
+      confirmedCharacters++
     }
   
     if (includeSpecialCharacters === true) {
@@ -66,6 +81,8 @@ function characterSelection() {
       characterPool += specialCharacters;
 
       console.log(characterPool)
+
+      confirmedCharacters++
     }
 
   } else {
@@ -92,12 +109,14 @@ function generatePassword() {
   console.log(characterCount - passwordBlueprint.length)
 
   console.log(passwordBlueprint + characterPool);
+
   
-  // close to something here
-  for (i = 0; i < characterCount - passwordBlueprint.length; i++){
+  for (i = 0; i < characterCount - confirmedCharacters; i++){
     passwordBlueprint += characterPool[Math.floor(Math.random()*characterPool.length)]
   }
   console.log(passwordBlueprint)
+  console.log(passwordBlueprint.length)
+  return passwordBlueprint;
 }
 
 
