@@ -99,6 +99,8 @@ function generatePassword() {
 
   if (characterCount < 8 || characterCount > 128) {
     alert("Please select a valid password length");
+
+    return "A safe password is between 8 and 128 characters. Please press \"Generate Password\" button again."
   } else {
     characterSelection();
 
