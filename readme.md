@@ -16,9 +16,9 @@ N/A
 
 To use this application you start by clicking the generate password button. You then input how many characters you would like the password to be. Then four prompts follow where you answer what type of characters you want to include in the password. After answering all the prompts a random password will be generated that fits your criteria. The password will show up on screen.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![Password Generator Screenshot](assets/images/site_screenshot.png)
+
+Link to live site: https://codysaal.github.io/password_generator/
 
 ## Credits
 
